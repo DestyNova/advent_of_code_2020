@@ -1,14 +1,12 @@
 module Day2 where
 
 import qualified Text.Parsec as Parsec
-import Text.Parsec ((<?>))
 import Control.Monad.Identity (Identity)
 import qualified Data.Text as Text
 import qualified Data.Text.IO as Text
 
 main = do
   ls <- fmap Text.lines (Text.readFile "input.txt")
-  print $ head $ tail ls
   let numValid = length $ filter (validPassword2 . parsePassword) ls
   print numValid
 
