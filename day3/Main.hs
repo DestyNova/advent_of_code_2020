@@ -3,7 +3,6 @@ module Day3 where
 main = do
   txt <- readFile "input.txt"
   let rs = lines txt
-
   let slopes = [(1,1), (3,1), (5,1), (7,1), (1,2)]
   print $ product $ map (uncurry (countTrees rs)) slopes
 
