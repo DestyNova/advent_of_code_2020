@@ -6,8 +6,7 @@ import qualified Data.Text.IO as Text
 
 main = do
   ls <- fmap Text.lines (Text.readFile "input.txt")
-  let numValid = length $ filter (validPassword2 . parsePassword) ls
-  print numValid
+  print $ length $ filter (validPassword2 . parsePassword) ls
 
 parsePassword s = Parsec.parse passwordParser "password" (Text.unpack s)
 
