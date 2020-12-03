@@ -17,8 +17,7 @@ validPassword (Right (min, max, c, password)) =
 validPassword _ = False
 
 validPassword2 (Right (a, b, c, password)) =
-  (password !! (a-1) == c) `xor` (password !! (b-1) == c)
-    where xor x y = not (x && y) && (x || y)
+  (password !! (a-1) == c) /= (password !! (b-1) == c)
 validPassword2 _ = False
 
 passwordParser :: Parsec.Parsec String () (Int,Int,Char,String)
