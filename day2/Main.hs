@@ -1,4 +1,4 @@
-module Day2 where
+module Main where
 
 import qualified Text.Parsec as Parsec
 import qualified Data.Text as Text

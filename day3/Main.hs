@@ -1,4 +1,4 @@
-module Day3 where
+module Main where
 
 main = do
   txt <- readFile "input.txt"
