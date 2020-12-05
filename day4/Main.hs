@@ -10,11 +10,11 @@ import qualified Data.Text.IO as Text
 main = do
   txt <- readFile "input.txt"
   let ps = splitPassports txt
-  print $ length $ filter isValid ps
+  print $ sum [1 | (Right _) <- parse passportValidator "" <$> ps]
 
-passportValidator :: Parsec String () [String]
-passportValidator =
-  many1 $ do
+passportValidator :: Parsec String () ()
+passportValidator = do
+  ks <- many1 $ do
     k <- count 3 lower
     char ':'
     case k of
@@ -34,8 +34,9 @@ passportValidator =
       "pid" -> void $ count 9 digit
       "cid" -> void $ many1 digit
     spaces
-
     return k
+
+  guard $ all (`elem` ks) ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]
 
 validateYear :: Int -> Int -> Parsec String () ()
 validateYear a b = do
@@ -46,9 +47,3 @@ splitPassports s = reverse $ rec s "" []
   where rec "" ps acc = reverse ps : acc
         rec ('\n':'\n':rest) ps acc = rec rest "" (reverse ps : acc)
         rec (x:rest) ps acc = rec rest (x:ps) acc
-
-isValid :: String -> Bool
-isValid ps = case parse passportValidator "" ps of
-               (Right fields) -> all (`elem` fields) keys
-               _ -> False
-  where keys = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]
