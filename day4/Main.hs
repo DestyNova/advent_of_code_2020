@@ -41,7 +41,7 @@ passportValidator = do
 validateYear :: Int -> Int -> Parsec String () ()
 validateYear a b = do
   year <- count 4 digit
-  guard $ inRange (a, b) $ read year
+  guard $ inRange (a,b) $ read year
 
 splitPassports s = reverse $ rec s "" []
   where rec "" ps acc = reverse ps : acc
