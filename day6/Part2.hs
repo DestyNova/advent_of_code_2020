@@ -1,6 +1,5 @@
 module Part2 where
 
-import Data.Char (isAlpha)
 import Data.List (intersect)
 
 main = do
