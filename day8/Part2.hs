@@ -16,8 +16,7 @@ instructionParser = do
 
   return (op, read val * if sign == '-' then (-1) else 1)
 
-run prog =
-  head $ dropWhile (\(acc, ok) -> not ok) $ map (run' prog 0 0 []) [0..length prog]
+run prog = head (dropWhile (not . snd) (run' prog 0 0 [] <$> [0..length prog]))
 
 run' prog acc pc executed flipPc | pc >= length prog = (acc, True)
                                  | pc `elem` executed = (acc, False) -- looped
