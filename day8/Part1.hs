@@ -1,8 +1,6 @@
 module Part1 where
 
-import Control.Monad (guard, void)
 import Text.Parsec
-import Data.List (union, nub, intersect)
 
 main = do
   txt <- readFile "input.txt"

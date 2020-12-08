@@ -1,8 +1,6 @@
 module Part2 where
 
-import Control.Monad (guard, void)
 import Text.Parsec
-import Data.List (union, nub, intersect)
 
 main = do
   txt <- readFile "input.txt"
@@ -22,7 +20,6 @@ instructionParser = do
 run prog =
   head $ dropWhile (\(acc, ok) -> not ok) $ map (run' prog 0 0 []) [0..length prog]
 
-run' :: [(String, Int)] -> Int -> Int -> [Int] -> Int -> (Int, Bool)
 run' prog acc pc executed flipPc | pc >= length prog = (acc, True)
                                  | pc `elem` executed = (acc, False) -- looped
                                  | otherwise =
