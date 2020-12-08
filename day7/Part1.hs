@@ -1,6 +1,5 @@
 module Part1 where
 
-import Control.Monad (guard, void)
 import Text.Parsec
 import Data.List (union, nub, intersect)
 
@@ -8,13 +7,11 @@ main = do
   txt <- readFile "input.txt"
   let gs = map (parse ruleParser "") $ lines txt
   let bags = [rule | (Right rule) <- gs]
-  print $ length $ recHolds bags
+  print $ length $ whatHolds bags
 
-data Tree = Leaf String | Node String [Tree] deriving (Show, Eq)
+whatHolds bags = whatHolds' bags ["shiny gold"]
 
-recHolds bags = whatHolds bags ["shiny gold"]
-
-whatHolds bags needed = rec bags needed 0
+whatHolds' bags needed = rec bags needed 0
   where rec bags needed len = let holders = nub [b | (b, holds) <- bags, needed `intersect` holds /= []]
                               in if length holders == len then
                                     holders
