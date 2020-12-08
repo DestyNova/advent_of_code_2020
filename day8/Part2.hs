@@ -4,9 +4,8 @@ import Text.Parsec
 
 main = do
   txt <- readFile "input.txt"
-  let gs = map (parse instructionParser "") $ lines txt
-  let prog = [insn | (Right insn) <- gs]
-  print $ run prog
+  let ps = parse instructionParser "" <$> lines txt
+  print $ run [insn | (Right insn) <- ps]
 
 instructionParser :: Parsec String () (String,Int)
 instructionParser = do
