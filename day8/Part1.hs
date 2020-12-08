@@ -26,6 +26,6 @@ run' prog acc pc executed | pc >= length prog = acc
   let (insn, val) = prog !! pc
       executed' = pc : executed
   in case insn of
-      "acc" -> run' prog (acc + val) (pc+1) executed'
-      "jmp" -> run' prog acc (pc+val) executed'
-      _ -> run' prog acc (pc+1) executed'
+      "acc" -> run' prog (acc + val) (pc  +1) executed'
+      "jmp" -> run' prog acc (pc + val) executed'
+      _ -> run' prog acc (pc + 1) executed'
