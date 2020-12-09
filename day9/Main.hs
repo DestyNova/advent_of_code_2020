@@ -1,14 +1,11 @@
 module Main where
 
-import Text.Parsec
-
 main = do
   txt <- readFile "input.txt"
   let nums = read <$> lines txt
   let bad = snd $ findBad nums 25
-  print bad
   let (lo,hi) = findContiguous nums bad
-  print (lo, hi, lo+hi)
+  print (bad, lo, hi, lo+hi)
 
 findBad nums preamble =
   let bad = map (findBad' (reverse nums) preamble) [0..length nums - 1]
