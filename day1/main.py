@@ -1,6 +1,6 @@
 import itertools
 
-with open("nums.txt") as f:
+with open("input.txt") as f:
     content = f.readlines()
 
 nums = [int(line) for line in content]
