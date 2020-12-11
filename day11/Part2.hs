@@ -41,8 +41,7 @@ visibleOccupied grid i j =
 getDimensions grid = (length (head grid), length grid)
 
 occupiedCount :: [String] -> Int
-occupiedCount grid =
-  length $ filter (=='#') $ concat grid
+occupiedCount = length . filter (=='#') . concat
 
 getVisibleCoords i j w h =
   [(x,y) | x <- [i-1, i, i+1],
