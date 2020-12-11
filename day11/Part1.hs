@@ -1,4 +1,4 @@
-module Part1 where
+module Main where
 
 -- Warning: ridiculously slow due to list access. Should have used Data.Array.
 main = do
