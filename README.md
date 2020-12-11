@@ -5,10 +5,14 @@ I'm trying to solve [Advent of Code 2020](https://adventofcode.com/2020/) progra
 ## Retrospectives
 
 ### Day 11: [Seating System](https://adventofcode.com/2020/day/11)
+*Haskell: [Part 1](https://github.com/DestyNova/advent_of_code_2020/blob/main/day11/Part1.hs), [Part 2](https://github.com/DestyNova/advent_of_code_2020/blob/main/day11/Part1.hs)*
+
 This one took about 2 hours for the two parts, and it's the point where I decided it was probably not a great idea for me to try with Haskell first for mutating matrix problems. The amount of nested mapping and transformation was quite awkward, and the method of accessing elements of the matrix was very inefficient. It would have been faster to use `Data.Array`, but that felt quite cumbersome to use. However, I'll probably rewrite this later to do that just as an experiment.
 Running the program on the full input took about 2-3 minutes on my laptop.
 
 ### Day 10: [Adapter Array](https://adventofcode.com/2020/day/10)
+*Haskell: [Part 1](https://github.com/DestyNova/advent_of_code_2020/blob/main/day10/Part1.hs), [Part 2](https://github.com/DestyNova/advent_of_code_2020/blob/main/day10/Part1.hs)*
+
 I had a really hard time with this and felt quite stupid at several points. Part 1 took only 10 minutes to solve, but part 2 took literally 5 hours straight. Initially I spent a long time struggling with the combinatory approach before realising that it would never work due to the time complexity required to enumerate all solutions.
 Eventually, I realised that you can walk over the sorted list of adapter values and look at a window of five elements. If the difference between the first and last is 4, that means the five elements are all sequential numbers, and that you can drop any combination of the middle elements _except_ all three of them, which would violate the "maximum adapter difference = 3" rule. That means, considering it as a boolean problem with three bits that can take any value other than 111, there are seven possible combinations. However, if you _don't_ have five sequential adapter values, then you should just look at whether one element can be dropped without violating the rule, before sliding the window forward by one element and continuing until you've reached the end.
 
