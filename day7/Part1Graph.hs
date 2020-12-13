@@ -2,7 +2,6 @@ module Part1 where
 
 import Text.Parsec
 import Data.Graph
-import Data.List (union, nub, intersect)
 
 main = do
   txt <- readFile "input.txt"
