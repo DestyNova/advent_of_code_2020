@@ -1,4 +1,4 @@
-### Day 10: [Adapter Array](https://adventofcode.com/2020/day/10)
+# Day 10: [Adapter Array](https://adventofcode.com/2020/day/10)
 *Haskell: [Part 1](https://github.com/DestyNova/advent_of_code_2020/blob/main/day10/Part1.hs), [Part 2](https://github.com/DestyNova/advent_of_code_2020/blob/main/day10/Part1.hs)*
 
 I had a really hard time with this and felt quite stupid at several points. Part 1 took only 10 minutes to solve, but part 2 took literally 5 hours straight. Initially I spent a long time struggling with the combinatory approach before realising that it would never work due to the time complexity required to enumerate all solutions.

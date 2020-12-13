@@ -1,4 +1,4 @@
-### Day 13: [Shuttle Search](https://adventofcode.com/2020/day/13)
+# Day 13: [Shuttle Search](https://adventofcode.com/2020/day/13)
 
 *Haskell: [Part 1](https://github.com/DestyNova/advent_of_code_2020/blob/main/day13/Part1.hs), [Part 2](https://github.com/DestyNova/advent_of_code_2020/blob/main/day13/Part1.hs)*
 

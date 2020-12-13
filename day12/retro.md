@@ -1,4 +1,4 @@
-### Day 12: [Rain Risk](https://adventofcode.com/2020/day/12)
+# Day 12: [Rain Risk](https://adventofcode.com/2020/day/12)
 
 *Haskell: [Part 1](https://github.com/DestyNova/advent_of_code_2020/blob/main/day12/Part1.hs), [Part 2](https://github.com/DestyNova/advent_of_code_2020/blob/main/day12/Part1.hs)*
 

@@ -10,7 +10,7 @@ main = do
   let bags = [rule | (Right rule) <- gs]
   print $ graphHolds bags
 
-graphHolds bags = let (g, node, vert) = graphFromEdges $ map (\(k, ks) -> (k, k, ks)) bags
+graphHolds bags = let (g, node, vert) = graphFromEdges $ map (\(k, ks) -> ((), k, ks)) bags
                       (Just k) = vert "shiny gold"
                       n = node k
                   in
