@@ -1,6 +1,5 @@
 module Part2 where
 
-import Control.Monad (guard, void)
 import Text.Parsec
 import Data.List (find)
 
