@@ -11,7 +11,6 @@ main = do
 
 graphHolds bags = let (g, node, vert) = graphFromEdges $ map (\(k, ks) -> ((), k, ks)) bags
                       (Just k) = vert "shiny gold"
-                      n = node k
                   in
                       length (reachable (transposeG g) k) - 1
 
