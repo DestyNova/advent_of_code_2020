@@ -9,12 +9,9 @@ import qualified Data.Map as Map
 data Instruction = SetMask String | WriteMem Int Int deriving (Show, Eq)
 
 main = do
-  rs <- lines <$> readFile "input.txt"
-  print rs
-  let ps = concat [insn | (Right insn) <- parse insnParser "" <$> rs]
-  print ps
-  let res = run ps
-  print $ Map.foldr (+) 0 res
+  rs <- readFile "sample2.txt"
+  let (Right prog) = parse insnParser "" rs
+  print $ Map.foldr (+) 0 (run prog)
 
 run prog = run' prog "" (Map.fromList [(i, 0) | i <- [0..10]])
 
