@@ -2,7 +2,7 @@ module Main where
 
 import Text.Parsec
 import Data.Bits (setBit, clearBit)
-import Data.List (elemIndices, union)
+import Data.List (elemIndices)
 import Data.Map (Map)
 import qualified Data.Map as Map
 

@@ -9,3 +9,4 @@ I'm trying to solve [Advent of Code 2020](https://adventofcode.com/2020/) progra
 * Day 11: [Seating System](https://github.com/DestyNova/advent_of_code_2020/blob/main/day11/retro.md)
 * Day 12: [Rain Risk](https://github.com/DestyNova/advent_of_code_2020/blob/main/day12/retro.md)
 * Day 13: [Shuttle Search](https://github.com/DestyNova/advent_of_code_2020/blob/main/day13/retro.md)
+* Day 14: [Docking Data](https://github.com/DestyNova/advent_of_code_2020/blob/main/day14/retro.md)
