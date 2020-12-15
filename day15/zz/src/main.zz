@@ -1,0 +1,61 @@
+using <stdio.h>::{printf}
+
+// NOTE: Will fail with a stack overflow unless a huge stack is set with:
+// $ ulimit -s 240000
+
+struct Buf {
+  usize dummy;
+  usize buf[];
+}
+
+export fn main() -> int {
+  // init buffer
+  Buf+30000001 mut arr;
+  usize buf_len = static(len(arr.buf));
+  for (usize mut i = 0; i < buf_len; i++) {
+    arr.buf[i] = 0;
+  }
+
+  // copy starting numbers
+  usize init[] = {16,12,1,0,15,7,11};
+  // usize init[] = {0, 3, 6};
+  usize init_len = static(len(init));
+  for (usize mut i = 0; i < init_len - 1; i++) {
+    usize j = init[i];
+    // how can this be statically proven, without needing a runtime if-test?
+    // static_assert(j < buf_len);
+    if(j < buf_len) {
+      arr.buf[j] = i+1;
+      printf("init: [%lu] => %lu\n", j, i);
+      static_assert(j < len(arr.buf));
+    } else {
+      printf("Bad array access.\n");
+      return 1;
+    }
+  }
+
+  // calculate sequence
+  usize mut last = init[init_len-1];
+
+  for (usize mut i = init_len+1; i < buf_len; i++) {
+    static_attest(last < buf_len); // how can we get rid of this?
+    static_assert(init_len > 1);
+    // static_assert(i > 0); // why does this fail?
+    static_attest(i > 0);  // how can we get rid of this?
+
+    usize last_step = i-1;
+    static_assert(last_step < buf_len);
+    static_assert(last_step >= 0);
+
+    usize j = arr.buf[last];
+    arr.buf[last] = last_step;
+    if(j == 0) {
+      last = 0;
+    } else {
+      last = i - j - 1;
+    }
+  }
+
+  printf("last: %lu\n", last);
+  return 0;
+}
