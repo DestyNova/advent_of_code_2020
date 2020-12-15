@@ -1,4 +1,4 @@
-# Day 14: [Docking Data](https://adventofcode.com/2020/day/13)
+# Day 14: [Docking Data](https://adventofcode.com/2020/day/14)
 
 *Haskell: [Part 1](https://github.com/DestyNova/advent_of_code_2020/blob/main/day14/Part1.hs) (00:41:38, rank 3890), [Part 2](https://github.com/DestyNova/advent_of_code_2020/blob/main/day14/Part1.hs) (01:10:22, rank 2883)*
 
