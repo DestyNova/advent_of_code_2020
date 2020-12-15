@@ -9,7 +9,7 @@ main = do
   let ns = [16,12,1,0,15,7,11]
   print ns
   print $ run 30000000 ns
-  -- print $ run 2020 ns
+  -- print $ run 2020 ns -- = 403
 
 run :: Int -> [Int] -> Int
 run steps ns =
@@ -17,7 +17,7 @@ run steps ns =
       start = init ns
       x = last ns
       m = Map.fromList (zip start [1..])
-  in (run' x (length ns + 1) steps m)
+  in run' x (length ns + 1) steps m
 
 run' :: Int -> Int -> Int -> Map Int Int -> Int
 run' x i steps m
