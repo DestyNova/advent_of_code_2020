@@ -9,3 +9,7 @@ The other obvious takeaway here is that this really is not a problem well-suited
 
 ## Update 1
 Thanks to another tip from a seasoned [Haskeller](https://github.com/ethercrow), I made a version that replaces the `Map Int Int` with an `STUArray s Int Int`, an unboxed integer array. The compiled version runs about 100 times faster, solving the full problem in 1.5 seconds on my laptop.
+
+## Update 2
+Out of curiosity, I re-implemented the algorithm with an unboxed u64 array in [zz](https://github.com/zetzit/zz), a variant of C with some proof-checking abilities but no dynamic allocation. It took quite a while to convince the compiler that what I was doing was safe, and somehow I managed to get things wrong and smash the stack several times by overflowing an array pointer to a negative value.
+Surprisingly, the performance was almost the exact same as the Haskell version with an unboxed integer array -- I was sort of expecting it to be a good bit faster, but maybe the biggest cost of this algorithm is its lack of memory locality, meaning the cache is of very little help.
