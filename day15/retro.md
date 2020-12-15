@@ -13,3 +13,5 @@ Thanks to another tip from a seasoned [Haskeller](https://github.com/ethercrow),
 ## Update 2
 Out of curiosity, I re-implemented the algorithm with an unboxed u64 array in [zz](https://github.com/zetzit/zz), a variant of C with some proof-checking abilities but no dynamic allocation. It took quite a while to convince the compiler that what I was doing was safe, and somehow I managed to get things wrong and smash the stack several times by overflowing an array pointer to a negative value.
 Surprisingly, the performance was almost the exact same as the Haskell version with an unboxed integer array -- I was sort of expecting it to be a good bit faster, but maybe the biggest cost of this algorithm is its lack of memory locality, meaning the cache is of very little help.
+
+Because `zz` requires all memory to be on the stack, running it for 30000000 steps requires temporarily increasing the stack size. By default it's 8 mb on Ubuntu machine, and I needed to set it to over 230 mb with `ulimit -s 240000`.
