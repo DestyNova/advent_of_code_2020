@@ -7,9 +7,7 @@ import qualified Data.Map as Map
 main = do
   -- let ns = [0,3,6]
   let ns = [16,12,1,0,15,7,11]
-  print ns
   print $ run 30000000 ns
-  -- print $ run 2020 ns -- = 403
 
 run :: Int -> [Int] -> Int
 run steps ns =
