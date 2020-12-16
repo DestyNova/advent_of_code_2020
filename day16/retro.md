@@ -1,0 +1,6 @@
+# Day 16: [Ticket Translation](https://adventofcode.com/2020/day/16)
+*Haskell: [Part 1](https://github.com/DestyNova/advent_of_code_2020/blob/main/day16/Part1.hs) (00:37:35, rank 4291), [Part 2](https://github.com/DestyNova/advent_of_code_2020/blob/main/day16/Part2.hs) (01:24:39, rank 3006)*
+
+An enjoyable puzzle. As usual, parsing took a couple of minutes to figure out. In both parts I got a little stuck because I wanted to map over a `Data.Map` and produce a list as output rather than another map. There's probably a nice way to do it, but anyway. I'm not sure why part 1 took so long, since it was pretty reasonable.
+
+Part 2 threw a bit of a curveball since it involved quite a few steps, and the fact that some fields could map onto multiple valid columns was unexpected. I was worried for a second that it would require a Sudoku-like solution involving backtracking, but luckily the problem input seems to be designed such that there's always at least one field that can only map onto a specific column `C`, meaning that `C` can be removed from the set of possible columns for every other field, until eventually every field maps to exactly one column, allowing the numeric solution to be found.
