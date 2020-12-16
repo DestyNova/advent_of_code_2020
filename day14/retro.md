@@ -1,6 +1,5 @@
 # Day 14: [Docking Data](https://adventofcode.com/2020/day/14)
-
-*Haskell: [Part 1](https://github.com/DestyNova/advent_of_code_2020/blob/main/day14/Part1.hs) (00:41:38, rank 3890), [Part 2](https://github.com/DestyNova/advent_of_code_2020/blob/main/day14/Part1.hs) (01:10:22, rank 2883)*
+*Haskell: [Part 1](https://github.com/DestyNova/advent_of_code_2020/blob/main/day14/Part1.hs) (00:41:38, rank 3890), [Part 2](https://github.com/DestyNova/advent_of_code_2020/blob/main/day14/Part2.hs) (01:10:22, rank 2883)*
 
 This is much more like the Intcode virtual machine challenges I remember from last year. As usual, parsing took a little time (maybe about 7 or 8 minutes -- I really have to start getting good at that since the leaderboard champions tend to complete entire challenges in that long).
 

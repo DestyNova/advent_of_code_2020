@@ -1,4 +1,5 @@
 # Day 7: [Handy Haversacks](https://adventofcode.com/2020/day/7)
+*Haskell: [Part 1](https://github.com/DestyNova/advent_of_code_2020/blob/main/day7/Part1.hs) (01:03:18, rank 5637), [Part 2](https://github.com/DestyNova/advent_of_code_2020/blob/main/day7/Part2.hs) (01:22:04, rank 4600)*
 
 ## Part 1
 This one a bit of time just to properly parse the input format. Once that was done, I wasn't sure of the best approach, and kept flip-flopping between some kind of tree traversal, and brute-force set operations. In the end, brute-force set operations won: keep doing unions on the set of all bags that can contain the shiny gold bag, recursively, until the holding set stops growing. It takes about a second to run on my machine with the full input.

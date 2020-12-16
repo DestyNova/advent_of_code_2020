@@ -1,6 +1,5 @@
 # Day 13: [Shuttle Search](https://adventofcode.com/2020/day/13)
-
-*Haskell: [Part 1](https://github.com/DestyNova/advent_of_code_2020/blob/main/day13/Part1.hs), [Part 2](https://github.com/DestyNova/advent_of_code_2020/blob/main/day13/Part1.hs)*
+*Haskell: [Part 1](https://github.com/DestyNova/advent_of_code_2020/blob/main/day13/Part1.hs), [Part 2](https://github.com/DestyNova/advent_of_code_2020/blob/main/day13/Part2.hs)*
 
 This one was really nice. I wasted a bit of time in part 1 just fumbling the parsing, despite the very simple syntax. Parsec is really powerful, but I still stumble with parses that require backtracking. That seems to be required whenever you use the `choice` or `<|>` operator, but I guess there are some scenarios where it isn't needed, and since it's relatively expensive, you have to do it explicitly.
 

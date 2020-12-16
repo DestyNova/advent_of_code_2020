@@ -1,6 +1,5 @@
 # Day 15: [Rambunctious Recitation](https://adventofcode.com/2020/day/15)
-
-*Haskell: [Part 1](https://github.com/DestyNova/advent_of_code_2020/blob/main/day15/Part1.hs) (00:38:33, rank 4277), [Part 2](https://github.com/DestyNova/advent_of_code_2020/blob/main/day15/Part1.hs) (01:07:30, rank 4462)*
+*Haskell: [Part 1](https://github.com/DestyNova/advent_of_code_2020/blob/main/day15/Part1.hs) (00:38:33, rank 4277), [Part 2](https://github.com/DestyNova/advent_of_code_2020/blob/main/day15/Part2.hs) (01:07:30, rank 4462)*
 
 This one got a little silly. I decided to use `Data.Map` again, which was fine for part 1, although I made a few errors with indices and such that took a while to figure out.
 
