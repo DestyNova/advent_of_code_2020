@@ -31,26 +31,9 @@ crt ns = sum yokes `mod` prod
         pps = map (prod `div`) xs
         invs = zipWith inv pps xs
 
--- Euclid's extended algorithm "inspired by":
--- https://stackoverflow.com/a/35529381/2161072
--- It also provides a more elegant solution to the CRT, but I didn't want
--- to steal the entire thing.
+-- Euclid's extended algorithm "inspired by": https://stackoverflow.com/a/35529381/2161072
+-- It also provides a more elegant solution to the CRT, but I didn't want to steal the entire thing.
 euclid 0 b = (b, 0, 1)
 euclid a b = (g, t - (b `div` a) * s, s)
     where (g, s, t) = euclid (b `mod` a) a
 inv a m = let (_, i, _) = euclid a m in i `mod` m
-
--- Notes, trying to figure out the relationship for two consecutive values:
--- f 67 7 = 335
--- f 67 9 = 134
--- f 3 5 = 9
--- f 3 7 = 6
--- f 5 7 = 20
--- f 5 9 = 35
--- f 7 13 = 77
--- f 5 13 = 25
--- Chinese remainder?
--- find n | n mod 3 == 0 && (n+1) mod 5 == 0
---                          ^ equivalent to n mod 5 = (5-1)
--- generally: find n | n mod a == 0 && n mod b == (b-b_gap) ...
--- ... ∑ (rem[i]*pp[i]*inv[i]) ) % prod
