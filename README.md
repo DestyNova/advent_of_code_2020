@@ -13,3 +13,4 @@ I'm trying to solve [Advent of Code 2020](https://adventofcode.com/2020/) progra
 * Day 15: [Rambunctious Recitation](https://github.com/DestyNova/advent_of_code_2020/blob/main/day15/retro.md)
 * Day 16: [Ticket Translation](https://github.com/DestyNova/advent_of_code_2020/blob/main/day16/retro.md)
 * Day 17: [Conway Cubes](https://github.com/DestyNova/advent_of_code_2020/blob/main/day17/retro.md)
+* Day 18: [Operator Order](https://github.com/DestyNova/advent_of_code_2020/blob/main/day18/retro.md)
