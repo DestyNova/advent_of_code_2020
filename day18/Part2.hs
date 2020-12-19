@@ -1,10 +1,8 @@
 module Main where
 
 import Text.Parsec
-import Data.Map (Map)
-import qualified Data.Map as Map
 
-data Token = LParen | RParen | OpMul | OpPlus | OpMinus | NumVal Int | Nop
+data Token = LParen | RParen | OpMul | OpPlus | OpMinus | NumVal Int
            deriving (Show, Eq)
 
 main = do
