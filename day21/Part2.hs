@@ -1,25 +1,15 @@
 module Main where
 
-import Text.Parsec
-import Data.Graph
+import Data.List (intersect, (\\), intercalate, sortOn)
 import Data.Map (Map)
 import qualified Data.Map as Map
-import Data.List (intersect, nub, (\\), intercalate, sortOn)
+import Text.Parsec
 
 main = do
   txt <- readFile "input.txt"
-  -- let s = parse ruleParser "" txt
-  -- print s
   let (Right (ingredientCounts, allergens)) = parse ruleParser "" txt
-  putStrLn "Ingredients:"
-  print ingredientCounts
-  putStrLn "Allergens:"
-  print allergens
-
   let canonicalAllergens = resolveMap allergens
-  print canonicalAllergens
-  print $ intercalate "," $ map snd (sortOn fst (Map.toList canonicalAllergens))
-  -- print $ sum [n | ingredient <- safeIngredients, (Just n) <- Map.lookup ingredientCounts]
+  putStrLn $ intercalate "," $ snd <$> sortOn fst (Map.toList canonicalAllergens)
 
 resolveMap :: Map String [String] -> Map String String
 resolveMap m =
@@ -36,16 +26,6 @@ resolveMap' m fs =
         fs
       else
         resolveMap' m' (Map.union fs (Map.map head known))
-
-getSafeIngredients :: Map String Int -> Map String [String] -> Map String Int
-getSafeIngredients ingredientCounts allergens =
-  let dodgyIngredients = nub $ concatMap snd (Map.toList allergens)
-    in Map.filterWithKey (\k _ -> k `notElem` dodgyIngredients) ingredientCounts
-
-graphHolds bags = let (g, node, vert) = graphFromEdges $ map (\(k, ks) -> ((), k, ks)) bags
-                      (Just k) = vert "shiny gold"
-                  in
-                      length (reachable (transposeG g) k) - 1
 
 ruleParser :: Parsec String () (Map String Int, Map String [String])
 ruleParser = do
@@ -64,4 +44,3 @@ ruleParser = do
   let allergens = Map.fromListWith intersect (concatMap snd ps)
           -- map (\(code, tx) -> (code, [tx])) $ concatMap snd ps
   return (counts, allergens)
-
