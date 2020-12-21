@@ -42,5 +42,4 @@ ruleParser = do
         ) (string "\n")
   let counts = Map.fromListWith (+) $ concatMap fst ps
   let allergens = Map.fromListWith intersect (concatMap snd ps)
-          -- map (\(code, tx) -> (code, [tx])) $ concatMap snd ps
   return (counts, allergens)
