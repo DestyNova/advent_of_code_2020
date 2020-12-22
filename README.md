@@ -17,3 +17,4 @@ I'm trying to solve [Advent of Code 2020](https://adventofcode.com/2020/) progra
 * Day 19: [Monster Messages](https://github.com/DestyNova/advent_of_code_2020/blob/main/day19/retro.md)
 * Day 20: [Jurassic Jigsaw](https://github.com/DestyNova/advent_of_code_2020/blob/main/day20/retro.md)
 * Day 21: [Allergen Assessment](https://github.com/DestyNova/advent_of_code_2020/blob/main/day21/retro.md)
+* Day 22: [Crab Combat](https://github.com/DestyNova/advent_of_code_2020/blob/main/day22/retro.md)
