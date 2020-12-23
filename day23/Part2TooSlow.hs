@@ -2,7 +2,6 @@ module Main where
 
 import Debug.Trace
 import Data.List (elemIndex, (\\), sortBy)
-import qualified Data.Map as Map
 import Control.Monad.ST
 import Data.Array.ST
 
@@ -14,12 +13,6 @@ main = do
   xs <- mapM (\x -> pure $ (x, runST $ run x cups')) [i | i <- [2..2000]]
   print xs
   return xs
-  -- print $ runST $ run 10 cups'
-  -- print $ runST $ run 100 cups'
-  -- print $ runST $ run 1000 cups'
-  -- print $ runST $ run 10000 cups'
-  -- let cups' = cups ++ [length cups + 1..1000000]
-  -- let xs = play (head cups') cups' [] 100000000
 
 run :: Int -> [Int] -> ST s (Int,Int)
 run steps cups = do
@@ -105,4 +98,3 @@ shiftLeft i dest cups cl = do
 
 tmp c cups | trace (show (c,cups)) False = undefined
            | otherwise = c
-
