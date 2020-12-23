@@ -32,7 +32,7 @@ play c cups cl moves m | moves == 0 = getResult cups cl
                     else 2
               else 1
   let dest = if c - skip < 1
-                then if null (m \\ hs) then error ("WAT: " ++ show (m,hs,10000-moves,c)) else maximum (m \\ hs)
+                then maximum (m \\ hs)
                 else c - skip
 
   let dNext = h1
