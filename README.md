@@ -19,3 +19,4 @@ I'm trying to solve [Advent of Code 2020](https://adventofcode.com/2020/) progra
 * Day 21: [Allergen Assessment](https://github.com/DestyNova/advent_of_code_2020/blob/main/day21/retro.md)
 * Day 22: [Crab Combat](https://github.com/DestyNova/advent_of_code_2020/blob/main/day22/retro.md)
 * Day 23: [Crab Cups](https://github.com/DestyNova/advent_of_code_2020/blob/main/day23/retro.md)
+* Day 24: [Lobby Layout](https://github.com/DestyNova/advent_of_code_2020/blob/main/day24/retro.md)
