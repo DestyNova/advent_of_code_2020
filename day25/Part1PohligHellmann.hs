@@ -21,19 +21,19 @@ factors' n f acc | f*f > n = if n /= 1 then (n:acc) else acc
 
   where f' = if f == 2 then 3 else f+2
 
-transform x ls = (x^ls) `mod` 20201227
+transform x ls = modExp x ls 20201227
 
 brute a b p qe | trace ("brute: " ++ show (a,b,p,qe)) False = undefined
                | otherwise =
-  head $ filter (\x -> a^x `mod` p == b `mod` p) [0..qe]
+  head $ filter (\x -> modExp a x p == b `mod` p) [0..qe]
 
 pohlig :: Integer -> Integer -> Integer -> Integer
 pohlig g h p | trace ("Pohlig: " ++ show (g,h,p)) False = undefined
              | otherwise =
   let fs = factors (p-1)
       qe = map (\x -> (x, toInteger $ length [1 | y <- fs, y==x])) $ nub fs
-      rs = map (\(q,e) ->
-                brute (g^((p-1) `div` q^e) `mod` p) (h^((p-1) `div` q^e) `mod` p) p (q^e)) qe
+      rs = map (\(q,e) -> let q2e = modExp q e p in
+                brute (modExp g ((p-1) `div` q2e) p) (modExp h ((p-1) `div` q2e) p) p q2e) qe
       cs = zip (map (uncurry (^)) qe) rs
   in crt cs
 
@@ -51,3 +51,12 @@ crt ns | trace ("crt: " ++ show ns) False = undefined
         rems = map snd ns
         pps = map (prod `div`) xs
         invs = zipWith inv pps xs
+
+modExp b e m = modExp' b e m (if odd e then b else 1)
+
+modExp' b e m r | e == 0 = r
+                | otherwise =
+  let e' = e `div` 2
+      b' = (b*b) `mod` m
+      r' = if odd e' then (r*b') `mod` m else r
+      in modExp' b' e' m r'
