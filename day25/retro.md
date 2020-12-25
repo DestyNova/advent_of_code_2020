@@ -12,9 +12,9 @@ After submitting the "solution", I came back and implemented the Pohlig-Hellmann
 ## Modular explosion, and really doing it right
 At first I thought there might be some other clever optimisations in the applet's implementation of the algorithm, but it didn't seem likely that this could lead to it being thousands, or tens of thousands of times faster. Instead, it seemed likely that many exponentiation operations were generating absolutely gigantic numbers that needed to be allocated and garbage collected later, even though we immediately apply modulo operations that would reduce them to a tiny size.
 
-So I set about to implement a faster modulo exponentiation algorithm. At first I tried the naieve `mod (base*base) (power-1)` recursive approach, but this was also really slow since it requires `O(n)` time where `n` is the exponent, and we're dealing with quite large exponents.
+So I set about implementing a faster modulo exponentiation algorithm. First, I tried the naieve `mod (base*base) (power-1)` recursive approach, but this was also really slow since it requires `O(n)` time where `n` is the exponent, and we're dealing with quite large exponents.
 
-Then I remembered that exponentiation can be done in logarithmic time with by dividing the exponent by 2 whenever it's even and multiplying by larger base values -- see [this article](https://dev-notes.eu/2019/12/Fast-Modular-Exponentiation/) for an explanation.
+Then I remembered that exponentiation can be done in logarithmic time by dividing the exponent by 2 whenever it's even and multiplying by larger base values -- see [this article](https://dev-notes.eu/2019/12/Fast-Modular-Exponentiation/) for an explanation.
 
 With this implemented, I changed all modular exponentiation steps to use this function and the resulting optimised binary produced the same result in 0.35 seconds. Wow!
 
