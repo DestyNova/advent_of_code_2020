@@ -16,7 +16,7 @@ So I set about implementing a faster modulo exponentiation algorithm. First, I t
 
 Then I remembered that exponentiation can be done in logarithmic time by dividing the exponent by 2 whenever it's even and multiplying by larger base values -- see [this article](https://dev-notes.eu/2019/12/Fast-Modular-Exponentiation/) for an explanation.
 
-With this implemented, I changed all modular exponentiation steps to use this function and the resulting optimised binary produced the same result in 0.35 seconds. Wow!
+With this implemented, I changed all modular exponentiation steps to use this function and the resulting optimised binary produced the same result in 0.35 seconds. Wow! Out of curiosity I also tried the bruteforce approach of searching for the loop size, using the new `modExp` function, and it completed with the correct result in 55 seconds.
 
 Well, that's a good way to end what's been a thoroughly enjoyable Advent of Code 2020. If you haven't tried the puzzles, I can highly recommend them as a nice way to learn a new programming language and improve upon missing parts of your computer science knowledge. It turns out I had, and still have a lot of improvement to do, so this was an exciting eye-opener.
 
