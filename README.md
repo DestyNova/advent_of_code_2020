@@ -1,6 +1,27 @@
 # Advent of Code 2020
 
-I'm trying to solve [Advent of Code 2020](https://adventofcode.com/2020/) programming puzzles. For most of them I'll be using Haskell, but for things that are more naturally suited to heavily-mutative solutions (at least, based on my fairly basic Haskell / pure functional problem-solving knowledge) I might use Python.
+A collection of solutions for the [Advent of Code 2020](https://adventofcode.com/2020/) programming puzzles. All are in Haskell, with one Python and one [zz](https://github.com/zetzit/zz) solution. I might add more languages later since the puzzles are great for getting comfortable with new programming languages. I'd highly recommend trying the challenges out if you haven't already.
+
+## Final code stats with [cloc](https://github.com/AlDanial/cloc)
+
+```
+     129 text files.
+     129 unique files.                                          
+      61 files ignored.
+
+github.com/AlDanial/cloc v 1.82  T=0.06 s (1194.9 files/s, 42046.1 lines/s)
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+Haskell                         48            352             46           1762
+Markdown                        18             76              0            177
+Python                           1              3              0              7
+TOML                             1              0              0              3
+Bourne Shell                     1              0              0              2
+-------------------------------------------------------------------------------
+SUM:                            69            431             46           1951
+-------------------------------------------------------------------------------
+```
 
 ## Retrospectives
 
