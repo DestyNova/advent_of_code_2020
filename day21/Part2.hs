@@ -13,7 +13,7 @@ main = do
 
 resolveMap :: Map String [String] -> Map String String
 resolveMap m =
-  resolveMap' m (Map.fromList [])
+  resolveMap' m Map.empty
 
 resolveMap' :: Map String [String] -> Map String String -> Map String String
 resolveMap' m fs =
